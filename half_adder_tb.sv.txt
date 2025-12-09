@@ -1,0 +1,25 @@
+// Code your testbench here
+// or browse Examples
+module test_bench;
+  reg a_tb, b_tb;
+  wire sum_tb, carry_tb;
+  
+  half_adder ha ( a_tb, b_tb, sum_tb, carry_tb);
+  
+  initial begin
+    $dumpfile("dump.vcd");   
+    $dumpvars(0, half_adder_testbench); 
+end
+
+  
+  initial
+    begin
+      {a_tb, b_tb} = 2'b00; #10;
+      {a_tb, b_tb} = 2'b00; #10;
+      {a_tb, b_tb} = 2'b00; #10;
+      {a_tb, b_tb} = 2'b00; #10;
+      
+      $finish;
+    end
+endmodule
+      
